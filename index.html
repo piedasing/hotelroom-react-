@@ -99,32 +99,24 @@
               <div className="row">
                 {DOM}
               </div>
-              <input className="result" value="123" />
+              <input className="result" value="" />
               <button className="mybtn" onClick={this.add}>click</button>
             </div>
           )
         }
         add() {
-          var rooms = []
-          $.ajax({
-            type: 'GET',
-            url: 'https://raw.githubusercontent.com/piedasing/json_test/master/json/document.json',
-            success: function(data){
-              var result = data
-              $('.result').val(result)
+          if($('.result').val()!= ''){
+            var getitem = JSON.parse($('.result').val())
+            console.log(getitem)
+            for(var i=0;i<getitem.length;i++){
+              this.state.list.push(getitem[i])
+              this.setState({
+                list: this.state.list
+              })
             }
-          })
-          var getitem = JSON.parse($('.result').val())
-          console.log(getitem)
-          for(var i=0;i<getitem.length;i++){
-            this.state.list.push(getitem[i])
-            this.setState({
-              list: this.state.list
-            })
-          }
+          }  
         } 
-      }
-      
+      }  
       function main() {
         const element = (
           <div className="row">
@@ -139,6 +131,18 @@
         ReactDOM.render(element, document.getElementById('root'));
       }
       main()
+    </script>
+    <script>
+      $(window).on('load',function(){
+        $.ajax({
+            type: 'GET',
+            url: 'https://raw.githubusercontent.com/piedasing/json_test/master/json/document.json',
+            success: function(data){
+              var result = data
+              $('.result').val(result)
+            }
+          })
+      })
     </script>
   </body>
 </html>
