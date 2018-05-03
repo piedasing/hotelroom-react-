@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>飯店房間(React版本)</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <!--font-awesome 5.0.8-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+    <!--bootstrap 4.0.0-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--css-->
+    <link rel="stylesheet"  href="./css/style.css">
+
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      class Mynav extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            post: this.props.dis,
+            comment: ''
+          }
+          Mynav.context = this;
+        }
+        render(){
+          return (
+            <div className="container-fluid navbar-expand-md">
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#edit" aria-controls="edit" aria-expanded="false" aria-label="Toggle navigation">
+                <i className="fas fa-bars"></i>
+              </button>
+              <div id="edit">
+                <h1>飯店資料</h1>
+                <hr/>
+                <label>折價</label>
+                <input className="form-control" value={this.state.comment} onChange={this.handleChange} />
+                <label>服務費</label>
+                <input className="form-control" />
+              </div>
+            </div>
+          )
+        }
+        handleChange(e) {
+            Mynav.context.setState({comment: e.target.value});
+        }
+      }
+      
+      class Rooms extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+              list: []
+          }
+          this.add = this.add.bind(this)
+        }
+        render() {
+          //console.log(this.state)
+          let DOM = this.state.list.map((item, index) => (
+            <div key={index} className="col-12 col-md-4 ol_room">
+              <div className="room_container">
+                <div className="cover" style={{backgroundImage: `url('${item.cover}')`}}>
+                  <h3>{item.name}</h3>
+                </div>
+                <div className="info">
+                  <h5>{item.eng}
+                    <div className="icons">
+                      <span>
+                        <i className="fa.fa-coffee" />
+                      </span>
+                      <span>
+                        <i className="fa.fa-bath" />
+                      </span>
+                      <span>
+                        <i className="fa.fa-wifi" />
+                      </span>
+                    </div>
+                  </h5>
+                  <h5>{item.discount} 折</h5>
+                  <h4>TWD
+                    <s>{item.price}</s>
+                    <div className="final_price">{item.price * item.discount}</div> 
+                  </h4>     
+                </div>
+              </div> 
+            </div>
+          ))
+
+          return (
+            <div>
+              <h1>房間資料</h1>
+              <div className="row">
+                {DOM}
+              </div>
+              <input className="result" value="123" />
+              <button className="mybtn" onClick={this.add}>click</button>
+            </div>
+          )
+        }
+        add() {
+          var rooms = []
+          $.ajax({
+            type: 'GET',
+            url: 'https://raw.githubusercontent.com/piedasing/json_test/master/json/document.json',
+            success: function(data){
+              var result = data
+              $('.result').val(result)
+            }
+          })
+          var getitem = JSON.parse($('.result').val())
+          console.log(getitem)
+          for(var i=0;i<getitem.length;i++){
+            this.state.list.push(getitem[i])
+            this.setState({
+              list: this.state.list
+            })
+          }
+        } 
+      }
+      
+      function main() {
+        const element = (
+          <div className="row">
+            <div className="col-12 col-md-3 col_rooms">
+              <Mynav dis="0.8" />
+            </div>
+            <div className="col-12 col-md-9 col_rooms">
+              <Rooms />
+            </div>
+          </div> 
+        )
+        ReactDOM.render(element, document.getElementById('root'));
+      }
+      main()
+    </script>
+  </body>
+</html>
