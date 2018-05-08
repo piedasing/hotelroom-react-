@@ -54,6 +54,10 @@
 > my-project
 >> node_modules
 
+>> package.json
+
+>> webpack.config.js
+
 >> src
 
 >>> index.html
@@ -74,7 +78,8 @@
 
 >>>> style.css
 
->> package.json
+## 啟動
+> npm start
 
->> webpack.config.js
+>> webpack打包後，即產生dist資料夾，透過loacalhost:8080即可看到專案的網頁
 
