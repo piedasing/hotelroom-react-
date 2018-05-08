@@ -11,6 +11,7 @@
 |babel-preset-react|6.24.1|webpack-dev-server|3.1.4|
 
 ## 開始安裝
+> 需先安裝 Node js 與 npm
 #### 創建資料夾並進到資料夾中
 > mkdir my-project
 
