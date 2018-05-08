@@ -50,6 +50,8 @@
 
 >> app資料夾內建立 index.js 、 component資料夾(放置所有react的組件)
 
+>> 詳細內容請見 [src](https://github.com/piedasing/hotelroom-react-/tree/master/src)
+
 ##### 目前專案目錄配置如下
 > my-project
 >> node_modules
