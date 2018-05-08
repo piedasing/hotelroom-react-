@@ -10,6 +10,7 @@
 |babel-preset-stage-2|6.24.1|webpack|4.8.1|
 |babel-preset-react|6.24.1|webpack-dev-server|3.1.4|
 
+#### Start
 ###### 創建資料夾並進到資料夾中
 > mkdir my-project
 > cd my-project
