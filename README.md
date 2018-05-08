@@ -43,7 +43,7 @@
 
 >> "build:prod": "webpack -p && npm run copy "
 
-> 註: 在windows系統中， copy後的路徑需使用 '\' (反斜線)， MacOS則是用 '/' (斜線)
+> 註: 在windows系統中， copy後的路徑需使用'反斜線'， MacOS則是用 '/' (斜線)
 
 > 檔案請看 [package.json](https://github.com/piedasing/hotelroom-react-/blob/master/package.json)
 
