@@ -13,6 +13,7 @@
 ## 開始安裝
 #### 創建資料夾並進到資料夾中
 > mkdir my-project
+
 > cd my-project
 
 #### 初始化專案(產生package.json)
