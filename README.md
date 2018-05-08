@@ -10,15 +10,14 @@
 |babel-preset-stage-2|6.24.1|webpack|4.8.1|
 |babel-preset-react|6.24.1|webpack-dev-server|3.1.4|
 
-## Start
-###### 創建資料夾並進到資料夾中
+## 開始安裝
+#### 創建資料夾並進到資料夾中
 > mkdir my-project
 > cd my-project
 
-###### 初始化專案(產生package.json)
+#### 初始化專案(產生package.json)
 > npm init
 
-### Install
 #### 安裝 react、react-dom
 > npm install react react-dom --save
 
