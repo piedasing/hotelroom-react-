@@ -1,5 +1,15 @@
 # react + react-router + webpack
 
+###### 安裝套件版本如下:
+|    套件    |     版本    |    套件    |     版本    |
+| :--------: | :--------: | :--------: | :--------: |
+|react|16.3.2|style-loader|0.21.0|
+|react-dom|16.3.2|css-loader|0.28.11|
+|react-router-dom|4.2.2|babel-loader|    7.1.4   |
+|babel-preset-es2015|6.24.1|webpack-cli|2.1.3|
+|babel-preset-stage-2|6.24.1|webpack|4.8.1|
+|babel-preset-react|6.24.1|webpack-dev-server|3.1.4|
+
 ###### 創建資料夾並進到資料夾中
 > mkdir my-project
 > cd my-project
