@@ -33,6 +33,48 @@
 
 >> "build:prod": "webpack -p && npm run copy "
 
+> 註: 在windows系統中， copy後的路徑需使用 '\' (反斜線)， MacOS則是用 '/' (斜線)
+
 > 檔案請看 [package.json](https://github.com/piedasing/hotelroom-react-/blob/master/package.json)
 
+以上為安裝各個項目的步驟
+
+## 開始使用
+
+##### 建立src資料夾
+> mkdir src
+
+> 進入src資料夾中並建立 index.html、 css資料夾 以及 app資料夾
+
+> css資料夾內放置需要的css檔案
+
+>> app資料夾內建立 index.js 、 component資料夾(放置所有react的組件)
+
+##### 目前專案目錄配置如下
+> my-project
+>> node_modules
+
+>> src
+
+>>> index.html
+
+>>> app
+
+>>>> component
+
+>>>>> App.js
+
+>>>>> Home.js
+
+>>>>> ...等等
+
+>>>> index.js
+
+>>> css
+
+>>>> style.css
+
+>> package.json
+
+>> webpack.config.js
 
