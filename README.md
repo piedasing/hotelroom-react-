@@ -81,5 +81,5 @@
 ## 啟動
 > npm start
 
->> webpack打包後，即產生dist資料夾，透過loacalhost:8080即可看到專案的網頁
+>> webpack打包後，即產生dist資料夾，透過loacalhost:8080即可看到成果!!
 
